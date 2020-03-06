@@ -1,7 +1,9 @@
 import * as Yup from 'yup';
+import { Op } from 'sequelize';
 
 import Deliveryman from '../models/Deliveryman';
 import File from '../models/File';
+import Delivery from '../models/Delivery';
 
 class DeliverymanController {
   async index(req, res) {
@@ -137,6 +139,34 @@ class DeliverymanController {
     await deliveryman.destroy();
 
     return res.status(204).json();
+  }
+
+  async showDeliveries(req, res) {
+    const deliveryman = await Deliveryman.findByPk(req.params.id);
+
+    if (!deliveryman) {
+      return res.status(400).json({ error: 'Deliveryman was not found.' });
+    }
+
+    const { status } = req.query;
+
+    const query = {
+      deliveryman_id: deliveryman.id,
+      end_date: null,
+      canceled_at: null,
+    };
+
+    if (status && status === 'done') {
+      query.end_date = {
+        [Op.ne]: null,
+      };
+    }
+
+    const deliveries = await Delivery.findAll({
+      where: query,
+    });
+
+    return res.json(deliveries);
   }
 }
 

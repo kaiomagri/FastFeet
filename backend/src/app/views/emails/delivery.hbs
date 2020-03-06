@@ -1,0 +1,15 @@
+<strong>Olá, {{#with deliveryman}} {{ name }} {{/with }}</strong>
+<p>Uma Ordem de Entrega foi cadastrada para você, confira os detalhes abaixo:</p>
+<p>
+  <strong>O que será entegue: </strong>{{ product }}<br/>
+  <h3>Endereço</h3><br/>
+  {{#with recipient}}
+  <strong>Rua: </strong>{{ street }}<br/>
+  <strong>Nº: </strong>{{ number }}<br/>
+  <strong>Complemento: </strong>{{ complement }}<br/>
+  <strong>Cidade: </strong>{{ city }}<br/>
+  <strong>Estado: </strong>{{ state }}<br/>
+  <strong>CEP: </strong>{{ zip }}<br/>
+  {{/with}}
+  <br/>
+</p>
