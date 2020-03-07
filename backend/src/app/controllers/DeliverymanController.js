@@ -17,7 +17,7 @@ import Recipient from '../models/Recipient';
 
 class DeliverymanController {
   async index(req, res) {
-    const { page = 1 } = req.query;
+    const { page = 1, name } = req.query;
 
     const deliverymans = await Deliveryman.findAll({
       order: ['id'],
@@ -31,6 +31,13 @@ class DeliverymanController {
           attributes: ['id', 'path', 'url'],
         },
       ],
+      where: name
+        ? {
+            name: {
+              [Op.iLike]: `%${name}%`,
+            },
+          }
+        : {},
     });
     return res.json(deliverymans);
   }
