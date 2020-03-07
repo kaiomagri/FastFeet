@@ -23,7 +23,7 @@ html, body, #root {
 
 body {
   -webkit-font-smoothing: antialiased;
-  background: #7159c1;
+  background: #f5f5f5;
 }
 
 body, input, button {
