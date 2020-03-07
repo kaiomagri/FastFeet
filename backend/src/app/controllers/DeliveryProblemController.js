@@ -4,6 +4,9 @@ import DeliveryProblem from '../models/DeliveryProblem';
 import Delivery from '../models/Delivery';
 import Deliveryman from '../models/Deliveryman';
 
+import DeliveryCancelMail from '../jobs/DeliveryCancelMail';
+import Queue from '../../lib/Queue';
+
 class DeliveryProblemController {
   async index(req, res) {
     const { page = 1 } = req.query;
@@ -93,9 +96,24 @@ class DeliveryProblemController {
       return res.status(400).json({ error: 'Delivery Problem was not found.' });
     }
 
-    const delivery = await Delivery.findByPk(problemExists.delivery_id);
+    const delivery = await Delivery.findByPk(problemExists.delivery_id, {
+      include: [
+        {
+          model: Deliveryman,
+          as: 'deliveryman',
+          attributes: ['name', 'email'],
+        },
+      ],
+    });
 
     await delivery.update({ canceled_at: new Date() });
+
+    await Queue.add(DeliveryCancelMail.key, {
+      name: delivery.deliveryman.name,
+      email: delivery.deliveryman.email,
+      id: delivery.id,
+      cancel_date: delivery.canceled_at,
+    });
 
     return res.status(204).json();
   }
