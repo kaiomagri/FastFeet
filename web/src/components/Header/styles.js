@@ -51,19 +51,26 @@ export const Profile = styled.div`
   padding-left: 20px;
 
   div {
+    display: flex;
+    flex-direction: column;
+    justify-items: end;
+    align-items: flex-end;
     text-align: right;
     margin-right: 10px;
 
     strong {
       display: block;
       color: #666666;
+      font-size: 14px;
     }
 
-    a {
+    button {
       display: block;
       margin-top: 2px;
-      font-size: 12px;
+      font-size: 14px;
       color: #de3b3b;
+      background: none;
+      border: none;
     }
   }
 `;
