@@ -12,7 +12,7 @@ import {
 
 import ContentHeader from '~/components/ContentHeader';
 
-export default function Dashboard() {
+export default function Delivery() {
   return (
     <Container>
       <Content>
@@ -89,6 +89,84 @@ export default function Dashboard() {
             </tr>
             <tr>
               <td>#03</td>
+              <td>Ludwig van Beethoven</td>
+              <td>
+                <AvatarDeliveryman>
+                  <img
+                    src="https://api.adorable.io/avatars/100/abott@adorable.png"
+                    alt="avatar"
+                  />
+                  <span>John Doe</span>
+                </AvatarDeliveryman>
+              </td>
+              <td>Rio do Sul</td>
+              <td>Santa Catarina</td>
+              <td>
+                <StatusPoint>
+                  <MdLens color="#2ca42b" size={16} />
+                  <span>ENTREGUE</span>
+                </StatusPoint>
+              </td>
+              <td>
+                <Action>
+                  <MdMoreHoriz color="#C6C6C6" size={24} />
+                </Action>
+              </td>
+            </tr>
+            <tr>
+              <td>#01</td>
+              <td>Ludwig van Beethoven</td>
+              <td>
+                <AvatarDeliveryman>
+                  <img
+                    src="https://api.adorable.io/avatars/100/abott@adorable.png"
+                    alt="avatar"
+                  />
+                  <span>John Doe</span>
+                </AvatarDeliveryman>
+              </td>
+              <td>Rio do Sul</td>
+              <td>Santa Catarina</td>
+              <td>
+                <StatusPoint>
+                  <MdLens color="#2ca42b" size={16} />
+                  <span>ENTREGUE</span>
+                </StatusPoint>
+              </td>
+              <td>
+                <Action>
+                  <MdMoreHoriz color="#C6C6C6" size={24} />
+                </Action>
+              </td>
+            </tr>
+            <tr>
+              <td>#01</td>
+              <td>Ludwig van Beethoven</td>
+              <td>
+                <AvatarDeliveryman>
+                  <img
+                    src="https://api.adorable.io/avatars/100/abott@adorable.png"
+                    alt="avatar"
+                  />
+                  <span>John Doe</span>
+                </AvatarDeliveryman>
+              </td>
+              <td>Rio do Sul</td>
+              <td>Santa Catarina</td>
+              <td>
+                <StatusPoint>
+                  <MdLens color="#2ca42b" size={16} />
+                  <span>ENTREGUE</span>
+                </StatusPoint>
+              </td>
+              <td>
+                <Action>
+                  <MdMoreHoriz color="#C6C6C6" size={24} />
+                </Action>
+              </td>
+            </tr>
+            <tr>
+              <td>#01</td>
               <td>Ludwig van Beethoven</td>
               <td>
                 <AvatarDeliveryman>

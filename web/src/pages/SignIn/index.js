@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
+
+import { signInRequest } from '~/store/modules/auth/actions';
 
 import Logo from '~/assets/fastfeet-logo.png';
 
@@ -13,10 +15,16 @@ const schema = Yup.object().shape({
 });
 
 export default function SignIn() {
+  const dispatch = useDispatch();
+
+  function handleSubmit({ email, password }) {
+    dispatch(signInRequest(email, password));
+  }
+
   return (
     <div>
-      <img src={Logo} alt="GoBarber" />
-      <Form schema={schema} onSubmit={() => {}}>
+      <img src={Logo} alt="FastFeet" />
+      <Form schema={schema} onSubmit={handleSubmit}>
         <Input
           name="email"
           type="email"
@@ -31,7 +39,6 @@ export default function SignIn() {
         />
 
         <button type="submit">Entrar no sistema</button>
-        <Link to="/register">Criar conta gratuita</Link>
       </Form>
     </div>
   );

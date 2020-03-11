@@ -24,27 +24,24 @@ export const Content = styled.div`
       width: 180px;
       height: 30px;
     }
+    .navbar__link {
+      font-weight: bold;
+      font-size: 15px;
+      color: #999999;
+      padding-left: 20px;
+      margin-left: 20px;
+    }
 
-    ul {
-      display: flex;
+    .navbar__link--active {
+      font-weight: bold;
+      font-size: 15px;
+      color: #444444;
     }
   }
 
   aside {
     display: flex;
     align-items: center;
-  }
-`;
-
-export const MenuItem = styled.li`
-  & + li {
-    padding-left: 20px;
-    margin-left: 20px;
-  }
-  a {
-    font-weight: bold;
-    font-size: 15px;
-    color: ${props => (props.active ? '#444444' : '#999999')};
   }
 `;
 

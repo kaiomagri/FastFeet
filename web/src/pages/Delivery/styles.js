@@ -21,7 +21,7 @@ export const Content = styled.div`
 
 export const ContentTable = styled.table`
   border-spacing: 0px 20px;
-  padding-top: 30px;
+  padding-top: 20px;
 
   thead {
     padding-bottom: 10px;
@@ -34,7 +34,7 @@ export const ContentTable = styled.table`
   }
 
   thead td {
-    padding: 20px;
+    padding: 0 20px 0 20px;
   }
 
   tbody tr {

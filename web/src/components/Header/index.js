@@ -1,29 +1,49 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '~/assets/fastfeet-logo.png';
 
-import { Container, Content, MenuItem, Profile } from './styles';
+import { Container, Content, Profile } from './styles';
 
 export default function Header() {
   return (
     <Container>
       <Content>
         <nav>
-          <img src={logo} alt="FastFeet" />
-          <ul>
-            <MenuItem active>
-              <Link to="/">ENCOMENDAS</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/">ENTREGADORES</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/">DESTINATÁRIOS</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/">PROBLEMAS</Link>
-            </MenuItem>
-          </ul>
+          <Link to="/">
+            <img src={logo} alt="FastFeet" />
+          </Link>
+          <NavLink
+            exact
+            activeClassName="navbar__link--active"
+            className="navbar__link"
+            to="/deliveries"
+          >
+            ENCOMENDAS
+          </NavLink>
+          <NavLink
+            exact
+            activeClassName="navbar__link--active"
+            className="navbar__link"
+            to="/deliverymans"
+          >
+            ENTREGADORES
+          </NavLink>
+          <NavLink
+            exact
+            activeClassName="navbar__link--active"
+            className="navbar__link"
+            to="/recipients"
+          >
+            DESTINATÁRIOS
+          </NavLink>
+          <NavLink
+            exact
+            activeClassName="navbar__link--active"
+            className="navbar__link"
+            to="/problems"
+          >
+            PROBLEMAS
+          </NavLink>
         </nav>
         <aside>
           <Profile>

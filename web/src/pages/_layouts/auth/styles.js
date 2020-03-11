@@ -35,12 +35,13 @@ export const Content = styled.div`
         background: #fff;
         border: 0;
         border-radius: 4px;
-        height: 44px;
+        line-height: 45px;
         padding: 0 15px;
         color: #999999;
         margin: 0 0 10px;
         border: 1px solid #dddddd;
         opacity: 1;
+        width: 300px;
 
         &::placeholder {
           color: rgba(255, 255, 255, 0.7);
@@ -55,8 +56,8 @@ export const Content = styled.div`
       }
 
       button {
-        margin-top: 10px;
-        height: 44px;
+        margin-top: 15px;
+        height: 45px;
         background: #7159c1;
         font-weight: bold;
         color: #fff;
@@ -67,17 +68,6 @@ export const Content = styled.div`
 
         &:hover {
           background: ${darken(0.03, '#7159c1')};
-        }
-      }
-
-      a {
-        color: #fff;
-        margin-top: 15px;
-        font-size: 16px;
-        opacity: 0.8;
-
-        &:hover {
-          opacity: 1;
         }
       }
     }
