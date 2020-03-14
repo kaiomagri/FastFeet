@@ -20,6 +20,51 @@ export const Content = styled.div`
   }
 `;
 
+export const ContentHeader = styled.div`
+  margin-top: 34px;
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #dddd;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+    width: 237px;
+
+    svg {
+      margin: 0px 10px;
+    }
+
+    input {
+      line-height: 36px;
+      border: none;
+    }
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #7d40e7 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+    width: 142px;
+    height: 36px;
+    border: none;
+
+    span {
+      color: #fff;
+      font-weight: bold;
+      font-size: 16px;
+      padding-left: 5px;
+    }
+  }
+`;
+
 export const Scroll = styled(PerfectScrollbar)`
   max-height: 260px;
   padding: 5px 15px;
@@ -37,6 +82,11 @@ export const ContentTable = styled.table`
     font-size: 16px;
     font-weight: bold;
     text-align: left;
+  }
+
+  thead tr td div {
+    display: flex;
+    justify-content: flex-end;
   }
 
   thead td {
@@ -104,10 +154,4 @@ export const StatusPoint = styled.div`
     font-size: 12px;
     text-transform: uppercase;
   }
-`;
-
-export const Action = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
 `;

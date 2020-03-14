@@ -23,7 +23,6 @@ export default function Header() {
             <img src={logo} alt="FastFeet" />
           </Link>
           <NavLink
-            exact
             activeClassName="navbar__link--active"
             className="navbar__link"
             to="/deliveries"
