@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Input } from '@rocketseat/unform';
-import { MdLens, MdAdd, MdSearch } from 'react-icons/md';
+import { MdLens } from 'react-icons/md';
 
 import api from '~/services/api';
-import history from '~/services/history';
 
-import {
-  Container,
-  Content,
-  ContentHeader,
-  ContentTable,
-  AvatarDeliveryman,
-  StatusPoint,
-} from './styles';
+import { AvatarDeliveryman, StatusPoint } from './styles';
 
+import ContentWrapper from '~/components/ContentWrapper';
+import Table from '~/components/Table';
+import PageHeader from '~/components/PageHeader';
 import ActionList from '~/components/ActionList';
 import SearchNotFound from '~/components/SearchNotFound';
 import Spinner from '~/components/Spinner';
@@ -103,7 +97,7 @@ export default function Delivery() {
 
   function getContent() {
     return deliveries.length > 0 ? (
-      <ContentTable>
+      <Table>
         <thead>
           <tr>
             <td>ID</td>
@@ -161,7 +155,7 @@ export default function Delivery() {
             </tr>
           ))}
         </tbody>
-      </ContentTable>
+      </Table>
     ) : (
       <SearchNotFound
         text="Nenhum encomenda encontrada com o produto informado"
@@ -171,30 +165,15 @@ export default function Delivery() {
   }
 
   return (
-    <Container>
-      <Content>
-        <strong>Gerenciando encomendas</strong>
-        <ContentHeader>
-          <div>
-            <MdSearch color="#dddd" size={24} />
-            <Input
-              name="search"
-              type="text"
-              placeholder="Buscar por produto"
-              onKeyDown={handleKeyDown}
-              onChange={handleChange}
-            />
-          </div>
-          <button
-            type="button"
-            onClick={() => history.push('/deliveries/register')}
-          >
-            <MdAdd color="#fff" size={24} />
-            <span>Cadastrar</span>
-          </button>
-        </ContentHeader>
-        {loading ? <Spinner /> : getContent()}
-      </Content>
-    </Container>
+    <ContentWrapper>
+      <PageHeader
+        title="Gerenciando encomendas"
+        handleKeyDown={handleKeyDown}
+        handleChange={handleChange}
+        inputPlaceholder="Burcar por produto"
+        registerPath="/deliveries/register"
+      />
+      {loading ? <Spinner /> : getContent()}
+    </ContentWrapper>
   );
 }
