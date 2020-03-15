@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import ImgSearchNotFound from '~/assets/search-not-found.png';
+
 import { Container } from './styles';
 
-export default function SearchNotFound({ imgPath, text }) {
+export default function SearchNotFound({ text }) {
   return (
     <Container>
-      <img src={imgPath} alt="Search not found" />
+      <img src={ImgSearchNotFound} alt="Search not found" />
       <h3>{text}</h3>
     </Container>
   );
@@ -14,5 +16,4 @@ export default function SearchNotFound({ imgPath, text }) {
 
 SearchNotFound.propTypes = {
   text: PropTypes.string.isRequired,
-  imgPath: PropTypes.string.isRequired,
 };

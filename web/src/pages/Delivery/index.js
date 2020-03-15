@@ -3,16 +3,14 @@ import { MdLens } from 'react-icons/md';
 
 import api from '~/services/api';
 
-import { AvatarDeliveryman, StatusPoint } from './styles';
-
-import ContentWrapper from '~/components/ContentWrapper';
 import Table from '~/components/Table';
 import PageHeader from '~/components/PageHeader';
 import ActionList from '~/components/ActionList';
 import SearchNotFound from '~/components/SearchNotFound';
 import Spinner from '~/components/Spinner';
+import AvatarDeliveryman from '~/components/AvatarDeliveryman';
 
-import ImgEmptyProduct from '~/assets/empty_product.svg';
+import { StatusPoint } from './styles';
 
 export default function Delivery() {
   const [deliveries, setDeliveries] = useState([]);
@@ -124,19 +122,14 @@ export default function Delivery() {
                 <AvatarDeliveryman
                   backColor={delivery.backColor}
                   textColor={delivery.textColor}
-                >
-                  {delivery.deliveryman.avatar ? (
-                    <img
-                      src={delivery.deliveryman.avatar.url}
-                      alt={delivery.deliveryman.name}
-                    />
-                  ) : (
-                    <div>
-                      <span>{delivery.deliverymanInitials}</span>
-                    </div>
-                  )}
-                  <span>{delivery.deliveryman.name}</span>
-                </AvatarDeliveryman>
+                  imgPath={
+                    delivery.deliveryman.avatar &&
+                    delivery.deliveryman.avatar.url
+                  }
+                  initials={delivery.deliverymanInitials}
+                  name={delivery.deliveryman.name}
+                  showName
+                />
               </td>
               <td>{delivery.recipient.city}</td>
               <td>{delivery.recipient.state}</td>
@@ -157,15 +150,12 @@ export default function Delivery() {
         </tbody>
       </Table>
     ) : (
-      <SearchNotFound
-        text="Nenhum encomenda encontrada com o produto informado"
-        imgPath={ImgEmptyProduct}
-      />
+      <SearchNotFound text="Nenhum encomenda encontrada com o produto informado" />
     );
   }
 
   return (
-    <ContentWrapper>
+    <>
       <PageHeader
         title="Gerenciando encomendas"
         handleKeyDown={handleKeyDown}
@@ -174,6 +164,6 @@ export default function Delivery() {
         registerPath="/deliveries/register"
       />
       {loading ? <Spinner /> : getContent()}
-    </ContentWrapper>
+    </>
   );
 }

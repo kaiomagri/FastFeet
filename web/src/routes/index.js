@@ -5,6 +5,7 @@ import Route from './Route';
 import SignIn from '../pages/SignIn';
 import Delivery from '../pages/Delivery';
 import DeliveryRegister from '../pages/DeliveryRegister';
+import Deliveryman from '../pages/Deliveryman';
 
 export default function Routes() {
   return (
@@ -17,6 +18,7 @@ export default function Routes() {
         component={DeliveryRegister}
         isPrivate
       />
+      <Route exact path="/deliverymans" component={Deliveryman} isPrivate />
     </Switch>
   );
 }

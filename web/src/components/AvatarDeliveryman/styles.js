@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AvatarDeliveryman = styled.div`
+export const Container = styled.div`
   display: flex;
   align-items: center;
 
@@ -26,23 +26,5 @@ export const AvatarDeliveryman = styled.div`
       font-size: 16px;
       text-transform: uppercase;
     }
-  }
-`;
-
-export const StatusPoint = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30px;
-  background: ${props => props.backColor};
-  border-radius: 50px;
-  width: 120px;
-
-  span {
-    color: ${props => props.textColor};
-    font-weight: bold;
-    padding-left: 5px;
-    font-size: 12px;
-    text-transform: uppercase;
   }
 `;
